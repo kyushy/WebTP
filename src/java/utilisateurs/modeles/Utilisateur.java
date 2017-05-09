@@ -24,17 +24,27 @@ public class Utilisateur implements Serializable {
     private int id;
     private String firstname;  
     private String lastname;  
-    private String login;  
+    private String login;
+    private String password;
   
     public Utilisateur() {  
     }  
   
-    public Utilisateur(final String login, final String lastname, final String firstname) {  
+    public Utilisateur(final String login, final String lastname, final String firstname, String password) {  
         this.login = login;  
         this.lastname = lastname;  
-        this.firstname = firstname;  
+        this.firstname = firstname;
+        this.password = password;
     }  
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public String getFirstname() {
         return firstname;
     }

@@ -24,14 +24,14 @@ public class GestionnaireUtilisateurs {
     private EntityManager em;  
   
     public void creerUtilisateursDeTest() {  
-        creeUtilisateur("John", "Lennon", "jlennon");  
-        creeUtilisateur("Paul", "Mac Cartney", "pmc");  
-        creeUtilisateur("Ringo", "Starr", "rstarr");  
-        creeUtilisateur("Georges", "Harisson", "georgesH");  
+        creeUtilisateur("John", "Lennon", "jlennon", "len0nn");  
+        creeUtilisateur("Paul", "Mac Cartney", "pmc", "ppmn");  
+        creeUtilisateur("Ringo", "Starr", "rstarr", "passw0");  
+        creeUtilisateur("Georges", "Harisson", "georgesH", "Har1s0n");  
     }  
   
-    public Utilisateur creeUtilisateur(String nom, String prenom, String login) {  
-        Utilisateur u = new Utilisateur(login, prenom, nom);  
+    public Utilisateur creeUtilisateur(String nom, String prenom, String login, String pass) {  
+        Utilisateur u = new Utilisateur(login, prenom, nom, pass);  
         em.persist(u);  
         return u;  
     }  
@@ -48,10 +48,11 @@ public class GestionnaireUtilisateurs {
         return (Utilisateur) q.getSingleResult();
     }
     
-    public Utilisateur updateUser(String login, String nom, String prenom){
+    public Utilisateur updateUser(String login, String nom, String prenom, String pass){
         Utilisateur user = getUser(login);
         user.setFirstname(prenom);
         user.setLastname(nom);
+        user.setPassword(pass);
         em.merge(user);
         return user;   
     }
