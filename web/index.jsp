@@ -42,7 +42,8 @@
                 <form action="ServletUsers" method="get">  
                     Nom : <input type="text" name="nom"/><br>  
                     Prénom : <input type="text" name="prenom"/><br>  
-                    Login : <input type="text" name="login"/><br>  
+                    Login : <input type="text" name="login"/><br>
+                    Mot de passe : <input type="text" name="password"/><br>  
                     <!-- Astuce pour passer des paramètres à une servlet depuis un formulaire JSP !-->  
                     <input type="hidden" name="action" value="creerUnUtilisateur"/>  
                     <input type="submit" value="Créer l'utilisateur" name="submit"/>  
@@ -60,7 +61,8 @@
                 <form action="ServletUsers" method="get">  
                     Login : <input type="text" name="login"/><br>  
                     Nom : <input type="text" name="nom"/><br>  
-                    Prénom : <input type="text" name="prenom"/><br>  
+                    Prénom : <input type="text" name="prenom"/><br>
+                    Mot de passe : <input type="text" name="password"/><br> 
                     <input type="hidden" name="action" value="updateUtilisateur"/>  
                     <input type="submit" value="Mettre à jour" name="submit"/>  
                 </form> 
@@ -135,13 +137,15 @@
                     <tr>  
                         <th><b>Login</b></th>  
                         <th><b>Nom</b></th>  
-                        <th><b>Prénom</b></th>  
+                        <th><b>Prénom</b></th>
+                        <th><b>Mot de passe</b></th>
                     </tr>
                     
                     <tr>  
                         <td>${requestScope['user'].login}</td>  
                         <td>${requestScope['user'].firstname}</td>  
-                        <td>${requestScope['user'].lastname}</td>  
+                        <td>${requestScope['user'].lastname}</td>
+                        <td>${requestScope['user'].password}</td>
                     </tr>  
                 </table>
                     
