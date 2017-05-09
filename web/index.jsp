@@ -19,6 +19,7 @@
           href="${pageContext.request.contextPath}/resources/style.css" />
         </head>  
         <body>
+            <jsp:include page="header.jsp"/>
             
             <h1>Gestionnaire d'utilisateurs</h1>  
       
