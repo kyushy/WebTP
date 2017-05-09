@@ -228,3 +228,19 @@ ul.bottom {
 div.about {
     margin-top : 1em;
 }
+
+.header {
+    float: right;
+    text-align: right;
+}
+
+.userMenu {
+    width: 30%;
+    float: left;
+    text-align: left;
+}
+
+.displayContainer {
+    float: right; 
+    width: 65%;
+}
