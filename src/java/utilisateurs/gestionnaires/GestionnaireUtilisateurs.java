@@ -75,6 +75,13 @@ public class GestionnaireUtilisateurs {
         return (Utilisateur) q.getSingleResult();
     }
     
+    public Boolean userExist(String login, String password){
+        Query q = em.createQuery("select u from Utilisateur u where u.login= :login and u.password= :password").
+                setParameter("login", login).
+                setParameter("password", password);
+        return q.getSingleResult() != null;
+    }
+    
     public Utilisateur updateUser(String login, String nom, String prenom, String pass){
         Utilisateur user = getUser(login);
         user.setFirstname(prenom);

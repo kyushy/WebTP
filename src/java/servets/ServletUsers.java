@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import utilisateurs.gestionnaires.GestionnaireUtilisateurs;
 import utilisateurs.modeles.Utilisateur;
 
@@ -46,45 +47,53 @@ public class ServletUsers extends HttpServlet {
         String message = "";  
   
         if (action != null) {  
+            
+            //GET Action pour afficher la liste des utilisateurs
             if (action.equals("listerLesUtilisateurs")) {  
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();  
                 request.setAttribute("listeDesUsers", liste);  
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Liste des utilisateurs";  
-                
+            
+            //GET Creation des utilisateurs de test
             } else if (action.equals("creerUtilisateursDeTest")) {  
                 gestionnaireUtilisateurs.creerUtilisateursDeTest();  
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();  
                 request.setAttribute("listeDesUsers", liste);  
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Liste des utilisateurs"; 
-                
+            
+            //GET Creation d'un utilisateur
             } else if (action.equals("creerUnUtilisateur")) {
                 gestionnaireUtilisateurs.creeUtilisateur(request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("login"), request.getParameter("password"));
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();  
                 request.setAttribute("listeDesUsers", liste);  
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Utilisateur "+ request.getParameter("nom") +" crée";
-                
+            
+            //GET Recherche par login
             } else if (action.equals("chercherParLogin")) {
                 Utilisateur user = gestionnaireUtilisateurs.getUser(request.getParameter("login"));
                 request.setAttribute("user", user);  
                 forwardTo = "index.jsp?action=listerUnUtilisateur";  
                 message = "Détail de l'Utilisateur "+ request.getParameter("login");
             
+            //GET Mettre à jour un utilisateur    
             } else if (action.equals("updateUtilisateur")) {
                 Utilisateur user = gestionnaireUtilisateurs.updateUser(request.getParameter("login"), request.getParameter("nom"), request.getParameter("prenom"), request.getParameter("password"));
                 request.setAttribute("user", user);
                 forwardTo = "index.jsp?action=listerUnUtilisateur";  
                 message = "Modification de l'Utilisateur "+ request.getParameter("login");
             
+            //GET Supprimer un utilisateur    
             } else if (action.equals("supprimerUtilisateur")) {
                 gestionnaireUtilisateurs.deleteUser(request.getParameter("login"));
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();
                 request.setAttribute("listeDesUsers", liste);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Utilisateur "+ request.getParameter("login") + "supprimé"; 
-                
+            
+            //Erreur ?
             } else {  
                 forwardTo = "index.jsp?action=todo";  
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";  
@@ -122,7 +131,18 @@ public class ServletUsers extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String action = request.getParameter("action");
+        
+            //POST Connexion    
+            if (action.equals("connexion")) {
+                String login = request.getParameter("login");  
+                String password = request.getParameter("password");
+                if(gestionnaireUtilisateurs.userExist(login, password)){
+                    HttpSession session = request.getSession(true);
+                }
+                response.sendRedirect(request.getContextPath());
+            }
     }
 
     /**
