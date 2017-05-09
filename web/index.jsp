@@ -18,7 +18,8 @@
             <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/resources/style.css" />
         </head>  
-        <body>  
+        <body>
+            
             <h1>Gestionnaire d'utilisateurs</h1>  
       
       
