@@ -130,7 +130,7 @@
             <c:if test="${param['action'] == 'listerUnUtilisateur'}" > 
                 <h2>Utilisateur</h2>  
       
-                <table border="10">  
+                <table class="listing" border="10">  
                     <!-- La ligne de titre du tableau des comptes -->  
                     <tr>  
                         <th><b>Login</b></th>  
