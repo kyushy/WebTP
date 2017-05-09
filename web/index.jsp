@@ -21,6 +21,7 @@
         <body>
             <jsp:include page="header.jsp"/>
             
+            <c:if test="${sessionScope.username != null}">
             <div class="userMenu">    
             <h1>Gestionnaire d'utilisateurs</h1>  
       
@@ -76,7 +77,7 @@
                 
             </ol>  
             </div>
-
+            </c:if>
             <!-- Fin du menu -->
             
             <div class="displayContainer">
