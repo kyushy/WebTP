@@ -27,7 +27,34 @@ public class GestionnaireUtilisateurs {
         creeUtilisateur("John", "Lennon", "jlennon", "len0nn");  
         creeUtilisateur("Paul", "Mac Cartney", "pmc", "ppmn");  
         creeUtilisateur("Ringo", "Starr", "rstarr", "passw0");  
-        creeUtilisateur("Georges", "Harisson", "georgesH", "Har1s0n");  
+        creeUtilisateur("Georges", "Harisson", "georgesH", "Har1s0n"); 
+        creeUtilisateur("Lenore", "Hoffman", "Myles Marshall", "12345");
+        creeUtilisateur("Illana", "Sheppard", "Alana Dunlap", "12345");
+        creeUtilisateur("Macaulay", "Baldwin", "Kirsten Meyer", "12345");
+        creeUtilisateur("Allegra", "Hale", "Julie Shields", "12345");
+        creeUtilisateur("Aurelia", "Spencer", "Buffy Sanchez", "12345");
+        creeUtilisateur("Hayden", "Trujillo", "Rina Mcguire", "12345");
+        creeUtilisateur("Kelly", "Atkins", "Abigail Brennan", "12345");
+        creeUtilisateur("Gil", "Morales", "Ralph Jacobson", "12345");
+        creeUtilisateur("Emi", "Macdonald", "Zelenia Williams", "12345");
+        creeUtilisateur("Jana", "Velasquez", "Lester Underwood", "12345");
+        creeUtilisateur("Jamalia", "Tyler", "Dean Barton", "12345");
+        creeUtilisateur("Kenneth", "Goff", "Whoopi Ortiz", "12345");
+        creeUtilisateur("Edan", "Price", "Mason Willis", "12345");
+        creeUtilisateur("Raymond", "Oneill", "Amos Mccullough", "12345");
+        creeUtilisateur("Allen", "Sykes", "Hamilton Kline", "12345");
+        creeUtilisateur("Kasper", "King", "Celeste Beard", "12345");
+        creeUtilisateur("Lucy", "Ball", "Harriet Strickland", "12345");
+        creeUtilisateur("Jael", "Jacobs", "Fuller Greene", "12345");
+        creeUtilisateur("Ashton", "Frederick", "Kirk Zamora", "12345");
+        creeUtilisateur("Arsenio", "Burks", "Vance Pitts", "12345");
+        creeUtilisateur("Ann", "Conway", "Colt Macdonald", "12345");
+        creeUtilisateur("Maia", "Whitley", "Ronan Bond", "12345");
+        creeUtilisateur("Martina", "Gates", "Aimee Barron", "12345");
+        creeUtilisateur("Cruz", "Buckner", "Meredith Mcmahon", "12345");
+        creeUtilisateur("May", "Massey", "Felicia Clayton", "12345");
+        creeUtilisateur("Ruby", "Cross", "Serena Stephenson", "12345"); 
+        creeUtilisateur("Rachel", "Moon", "Lydia Mullen", "12345");
     }  
   
     public Utilisateur creeUtilisateur(String nom, String prenom, String login, String pass) {  

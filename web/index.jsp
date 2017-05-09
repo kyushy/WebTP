@@ -36,7 +36,7 @@
                 <h2>Liste des fonctionnalités à implémenter dans la Servlet (note : après chaque action cette page sera  
                     rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2>  
             <ol>  
-                <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 4 utilisateurs de test</a></li>  
+                <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 30 utilisateurs de test</a></li>  
       
                 <li>Créer un utilisateur</li>  
                 <form action="ServletUsers" method="get">  
@@ -114,7 +114,7 @@
                     <!-- Affichage du solde total dans la dernière ligne du tableau -->  
                     <tr><th><b>TOTAL</b></th><th></th><th><b>${total}</b></th></tr>  
                 </table>
-                <c:if test="${total > 10}">
+                <c:if test="${total > 10}"><!-- Pagination -->
                     <table>
                         <tr>
                             <td>
