@@ -21,9 +21,8 @@
         <body>
             <jsp:include page="header.jsp"/>
             
-            <div class="userMenu">
+            <div class="userMenu">    
             <h1>Gestionnaire d'utilisateurs</h1>  
-      
       
             <!-- DEBUG : Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->  
             <c:if test="${!empty param['message']}">  
@@ -77,7 +76,9 @@
                 
             </ol>  
             </div>
-            <!-- Fin du menu -->  
+
+            <!-- Fin du menu -->
+            
             <div class="displayContainer">
             <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->  
             <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >  

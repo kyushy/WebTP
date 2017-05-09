@@ -8,7 +8,7 @@
     <a href="${pageContext.request.contextPath}">  
         <img src="http://unice.fr/++theme++ThemeUNS/assets/img/logo.png"/>
         <img src="http://miageprojet2.unice.fr/@api/deki/files/1946/=logo_miage-petit_transparent.png" style="margin-bottom: 40px; margin-left: 10px"/>
-    </a>    
+    </a>
     <div class="connectionForm">
         <form action="ServletUsers" method="post">  
             Login : <input type="text" name="login"/><br>

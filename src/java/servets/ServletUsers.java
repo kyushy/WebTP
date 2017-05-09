@@ -12,6 +12,7 @@ import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -133,14 +134,22 @@ public class ServletUsers extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         String action = request.getParameter("action");
+        PrintWriter out = response.getWriter();
         
             //POST Connexion    
             if (action.equals("connexion")) {
                 String login = request.getParameter("login");  
                 String password = request.getParameter("password");
                 if(gestionnaireUtilisateurs.userExist(login, password)){
-                    HttpSession session = request.getSession(true);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("cle", password);
+                    response.sendRedirect(request.getContextPath());
                 }
+            }
+            
+            else if (action.equals("deconnexion")) {
+                HttpSession session = request.getSession(true);
+                session.invalidate();
                 response.sendRedirect(request.getContextPath());
             }
     }
