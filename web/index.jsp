@@ -21,25 +21,21 @@
         <body>
             <jsp:include page="header.jsp"/>
             
+            <div class="userMenu">
             <h1>Gestionnaire d'utilisateurs</h1>  
       
       
-            <!-- Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->  
+            <!-- DEBUG : Message qui s'affiche lorsque la page est appelé avec un paramètre http message -->  
             <c:if test="${!empty param['message']}">  
                 <h2>Reçu message : ${param.message}</h2>  
             </c:if>  
       
-            <div class="userMenu">
             <h2>Menu de gestion des utilisateurs</h2>  
             <ul>  
                 <li><a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a></li>  
                 <p>  
             </ul>
-                <!--DELETE LATER-->
-                <!--
-                <h2>Liste des fonctionnalités à implémenter dans la Servlet (note : après chaque action cette page sera  
-                    rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2> 
-                -->
+
             <ol>  
                 <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 30 utilisateurs de test</a></li>  
       

@@ -230,14 +230,20 @@ div.about {
 }
 
 .header {
+    background-color: gainsboro;
+}
+.connectionForm{
     float: right;
     text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .userMenu {
-    width: 30%;
+    width: 20%;
     float: left;
     text-align: left;
+    background-color: lightblue;
 }
 
 .displayContainer {
