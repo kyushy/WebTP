@@ -29,16 +29,19 @@
                 <h2>Reçu message : ${param.message}</h2>  
             </c:if>  
       
-      
+            <div class="userMenu">
             <h2>Menu de gestion des utilisateurs</h2>  
             <ul>  
                 <li><a href="ServletUsers?action=listerLesUtilisateurs">Afficher/raffraichir la liste de tous les utilisateurs</a></li>  
                 <p>  
-            </ul>  
+            </ul>
+                <!--DELETE LATER-->
+                <!--
                 <h2>Liste des fonctionnalités à implémenter dans la Servlet (note : après chaque action cette page sera  
-                    rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2>  
+                    rappelée par la servlet avec la liste des utilisateurs raffraichie et un message de confirmation</h2> 
+                -->
             <ol>  
-                <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 4 utilisateurs de test</a></li>  
+                <li><a href="ServletUsers?action=creerUtilisateursDeTest">Créer 30 utilisateurs de test</a></li>  
       
                 <li>Créer un utilisateur</li>  
                 <form action="ServletUsers" method="get">  
@@ -77,9 +80,9 @@
                 </form>  
                 
             </ol>  
-      
+            </div>
             <!-- Fin du menu -->  
-      
+            <div class="displayContainer">
             <!-- Zone qui affiche les utilisateurs si le paramètre action vaut listerComptes -->  
             <c:if test="${param['action'] == 'listerLesUtilisateurs'}" >  
                 <h2>Liste des utilisateurs</h2>  
@@ -116,7 +119,7 @@
                     <!-- Affichage du solde total dans la dernière ligne du tableau -->  
                     <tr><th><b>TOTAL</b></th><th></th><th><b>${total}</b></th></tr>  
                 </table>
-                <c:if test="${total > 10}">
+                <c:if test="${total > 10}"><!-- Pagination -->
                     <table>
                         <tr>
                             <td>
@@ -152,6 +155,6 @@
                 </table>
                     
             </c:if>
-                
+            </div>    
         </body>  
     </html>  
