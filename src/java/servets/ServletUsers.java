@@ -142,11 +142,12 @@ public class ServletUsers extends HttpServlet {
                 String password = request.getParameter("password");
                 if(gestionnaireUtilisateurs.userExist(login, password)){
                     HttpSession session = request.getSession();
-                    session.setAttribute("cle", password);
-                    response.sendRedirect(request.getContextPath());
+                    session.setAttribute("username", login);
                 }
+                response.sendRedirect(request.getContextPath());
             }
             
+            //POST Deconnexion
             else if (action.equals("deconnexion")) {
                 HttpSession session = request.getSession(true);
                 session.invalidate();
