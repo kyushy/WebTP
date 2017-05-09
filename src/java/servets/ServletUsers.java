@@ -52,7 +52,9 @@ public class ServletUsers extends HttpServlet {
             //GET Action pour afficher la liste des utilisateurs
             if (action.equals("listerLesUtilisateurs")) {  
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();  
-                request.setAttribute("listeDesUsers", liste);  
+                request.setAttribute("listeDesUsers", liste);
+                //request.setAttribute("debutPagination", 1);
+                //request.setAttribute("finPagination",  10);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Liste des utilisateurs";  
             
@@ -94,8 +96,42 @@ public class ServletUsers extends HttpServlet {
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Utilisateur "+ request.getParameter("login") + "supprimé"; 
             
-            //Erreur ?
-            } else {  
+            //Pagination
+            } else if (action.equals("paginationUtilisateur")) {
+                
+                int depart = Integer.parseInt(request.getParameter("pagDepart"));
+                int fin = Integer.parseInt(request.getParameter("pagFin"));
+                Collection<Utilisateur> liste;
+                
+                int ndepart;
+                int nfin;
+                
+                if ( depart == 1 && request.getParameter("submit").equalsIgnoreCase("suivant")) {
+                    //cas on avance de 10
+                    liste = gestionnaireUtilisateurs.paginationUtilisateur(depart+10, fin+10);
+                    ndepart = depart + 10;
+                    nfin = fin + 10;
+                    
+                } else if ( depart > 10 && request.getParameter("submit").equalsIgnoreCase("suivant") && ((fin+10) < gestionnaireUtilisateurs.nombreUtilisateur()) ) {
+                    liste = gestionnaireUtilisateurs.paginationUtilisateur(depart+10, fin+10);
+                    ndepart = depart + 10;
+                    nfin = fin + 10;
+                } else if ( depart > 10 && request.getParameter("submit").equalsIgnoreCase("precedant") ) {
+                    liste = gestionnaireUtilisateurs.paginationUtilisateur(depart-10, fin-10);
+                    ndepart = depart - 10;
+                    nfin = fin - 10;
+                } else {
+                    liste = gestionnaireUtilisateurs.paginationUtilisateur(depart, fin);
+                    ndepart = depart;
+                    nfin = fin;
+                }
+                request.setAttribute("debutPagination", ndepart);
+                request.setAttribute("finPagination", nfin);
+                request.setAttribute("listeDesUsers", liste);
+                forwardTo = "index.jsp?action=lpaginationUtilisateur";  
+                message = "Liste des utilisateurs avec pagination";  
+                
+            }else {  //Erreur ?
                 forwardTo = "index.jsp?action=todo";  
                 message = "La fonctionnalité pour le paramètre " + action + " est à implémenter !";  
             }  

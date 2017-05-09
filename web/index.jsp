@@ -120,12 +120,17 @@
                 <c:if test="${total > 10}"><!-- Pagination -->
                     <table>
                         <tr>
+                            <form action="ServletUsers" method="get">
+                            <input type="hidden" name="action" value="paginationUtilisateur"/>
                             <td>
-                                <input type="submit" value="<-" name="submit"/>
+                                <input type="submit" value="<-" name="precedant"/>
                             </td>
                             <td>
-                                <input type="submit" value="->" name="submit"/>
+                                <input type="submit" value="->" name="suivant"/>
                             </td>
+                            <input type="hidden" name="depart" value="${requestScope['debutPagination']}"/>
+                            <input type="hidden" name="fin" value="${requestScope['finPagination']}"/>
+                            </form> 
                         </tr>
                     </table>
                 </c:if>    

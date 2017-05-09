@@ -69,6 +69,20 @@ public class GestionnaireUtilisateurs {
         return q.getResultList();  
     }
     
+    public Collection<Utilisateur> paginationUtilisateur(int debut, int fin) {
+        //Recuperation des utilisateurs entre une posisition de depart et de fin
+        Query q = em.createQuery("select u from Utilisateur u").setMaxResults(fin).setFirstResult(debut);
+        return q.getResultList();
+        
+    }
+    
+    public int nombreUtilisateur() {
+        //recuperation du nombre max d'utilisateurs
+        Query q = em.createQuery("select count(u) from Utilisateur u");
+        return (int)q.getSingleResult();
+        
+    }
+    
     public Utilisateur getUser(String login){
         Query q = em.createQuery("select u from Utilisateur u where u.login= :login").
                 setParameter("login", login);
