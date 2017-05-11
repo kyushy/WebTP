@@ -7,6 +7,7 @@ package utilisateurs.modeles;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,7 +31,8 @@ public class Utilisateur implements Serializable {
     private String lastname;  
     private String login;
     private String password;
-    private ArrayList<Adresse> adresses;
+    @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+    private Collection<Adresse> adresses = new ArrayList<>();
   
     public Utilisateur() {  
     }  
@@ -42,12 +44,11 @@ public class Utilisateur implements Serializable {
         this.password = password;
     }  
 
-    @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
-    public ArrayList<Adresse> getAdresses() {
+    public Collection<Adresse> getAdresses() {
         return adresses;
     }
 
-    public void setAdresses(ArrayList<Adresse> adresses) {
+    public void setAdresses(Collection<Adresse> adresses) {
         this.adresses = adresses;
     }
 

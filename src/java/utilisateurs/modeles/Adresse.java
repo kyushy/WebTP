@@ -27,6 +27,15 @@ public class Adresse implements Serializable {
     private String ville;
     private String pays;
     
+    public Adresse(){}
+    
+    public Adresse(String numNom, String zip, String ville, String pays){
+        this.numNomRue = numNom;
+        this.codePostal = zip;
+        this.ville = ville;
+        this.pays = pays;
+    }
+    
     public Long getId() {
         return id;
     }

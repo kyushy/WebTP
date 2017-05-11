@@ -5,11 +5,13 @@
  */
 package utilisateurs.gestionnaires;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import utilisateurs.modeles.Adresse;
 import utilisateurs.modeles.Utilisateur;
 
 /**
@@ -58,7 +60,17 @@ public class GestionnaireUtilisateurs {
     }  
   
     public Utilisateur creeUtilisateur(String nom, String prenom, String login, String pass) {  
-        Utilisateur u = new Utilisateur(login, prenom, nom, pass);  
+        Utilisateur u = new Utilisateur(login, prenom, nom, pass);
+        
+        Collection<Adresse> adresses = new ArrayList<>();
+        Adresse a = new Adresse("360 blabla", "04100", "man", "France");
+        em.persist(a);
+        Adresse a2 = new Adresse("410 blublu", "04500", "min", "France");
+        em.persist(a2);
+        adresses.add(a);
+        adresses.add(a2);
+        
+        u.setAdresses(adresses);
         em.persist(u);  
         return u;  
     }  
