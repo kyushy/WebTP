@@ -127,7 +127,7 @@
                     </c:forEach>  
       
                     <!-- Affichage du solde total dans la dernière ligne du tableau -->  
-                    <tr><th><b>TOTAL</b></th><th></th><th><b>${total}</b></th></tr>  
+                    <tr><th><b>TOTAL</b></th><th></th><th></th><th></th><th><b>${total}</b></th></tr>  
                 </table>
                 <c:if test="${total > 10}"><!-- Pagination -->
                     <table>

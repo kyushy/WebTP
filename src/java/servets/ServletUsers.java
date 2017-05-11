@@ -53,8 +53,8 @@ public class ServletUsers extends HttpServlet {
             if (action.equals("listerLesUtilisateurs")) {  
                 Collection<Utilisateur> liste = gestionnaireUtilisateurs.getAllUsers();  
                 request.setAttribute("listeDesUsers", liste);
-                //request.setAttribute("debutPagination", 1);
-                //request.setAttribute("finPagination",  10);
+                request.setAttribute("debutPagination", 1);
+                request.setAttribute("finPagination",  10);
                 forwardTo = "index.jsp?action=listerLesUtilisateurs";  
                 message = "Liste des utilisateurs";  
             
