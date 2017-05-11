@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import utilisateurs.modeles.Adresse;
+import utilisateurs.modeles.Telephone;
 import utilisateurs.modeles.Utilisateur;
 
 /**
@@ -70,6 +71,12 @@ public class GestionnaireUtilisateurs {
         adresses.add(a);
         adresses.add(a2);
         
+        Collection<Telephone> telephones = new ArrayList<>();
+        Telephone t = new Telephone("0492722973");
+        em.persist(t);
+        telephones.add(t);
+        
+        u.setTelephones(telephones);
         u.setAdresses(adresses);
         em.persist(u);  
         return u;  

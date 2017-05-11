@@ -33,6 +33,8 @@ public class Utilisateur implements Serializable {
     private String password;
     @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
     private Collection<Adresse> adresses = new ArrayList<>();
+    @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.EAGER)
+    private Collection<Telephone> telephones = new ArrayList<>();
   
     public Utilisateur() {  
     }  
@@ -43,6 +45,14 @@ public class Utilisateur implements Serializable {
         this.firstname = firstname;
         this.password = password;
     }  
+
+    public Collection<Telephone> getTelephones() {
+        return telephones;
+    }
+
+    public void setTelephones(Collection<Telephone> telephones) {
+        this.telephones = telephones;
+    }
 
     public Collection<Adresse> getAdresses() {
         return adresses;

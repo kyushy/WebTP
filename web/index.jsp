@@ -92,6 +92,7 @@
                         <th><b>Nom</b></th>  
                         <th><b>Prénom</b></th>
                         <th><b>Adresses</b></th>
+                        <th><b>Telephones</b></th>
                     </tr>  
       
                     <!-- Ici on affiche les lignes, une par utilisateur -->  
@@ -111,9 +112,14 @@
                             <td>${u.firstname}</td>  
                             <td>${u.lastname}</td>
                             <td>
-                            <c:forEach var="a" items="${u.adresses}">
-                                <p>${a.numNomRue} ${a.ville} ${a.codePostal} ${a.pays}</p>
-                            </c:forEach>
+                                <c:forEach var="a" items="${u.adresses}">
+                                    <p>${a.numNomRue} ${a.ville} ${a.codePostal} ${a.pays}</p>
+                                </c:forEach>
+                            </td>
+                            <td>
+                                <c:forEach var="t" items="${u.telephones}">
+                                    <p>${t.numero}</p>
+                                </c:forEach>    
                             </td>
                             <!-- On compte le nombre de users -->  
                             <c:set var="total" value="${total+1}"/>  
